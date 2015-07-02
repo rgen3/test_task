@@ -4,9 +4,14 @@
     <meta charset="utf-8">
     <title>Тестовое задание отправка формы</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script>
+    <![endif]-->
 </head>
 <body>
+<!--content starts -->
 <h1>Не особо красивая, но адаптивная форма для тестового задания</h1>
+<!--form starts-->
 <form method="post" action="assets/php/handler.php" enctype="application/x-www-form-urlencoded" id="custom-form">
     <input type="hidden" name="token" value="<?=$token?>" />
     <div class="input-group">
@@ -33,6 +38,8 @@
         <input name="send" type="submit" value="Отправить форму">
     </div>
 </form>
+<!--form ends -->
+<!--content ends -->
 </body>
 <script src="assets/js/lib.js" type="application/x-javascript"></script>
 <script src="assets/js/custom.js" type="application/x-javascript"></script>

@@ -15,7 +15,7 @@
  * @return bool
  */
 function check_brackets($str){
-    return (bool) preg_match("/^((?:[^{}()]|(?:(?:\{(?1)\})|(?:\((?1)\))))*+)$/", $str);
+        return (bool) preg_match("/^((?:[^{}()]|(?:(?:\{(?1)\})|(?:\((?1)\))))*+)$/", $str);
 }
 
 $str = "((){}{{}(){(){{}({}{}{{({}){}}})}}})";

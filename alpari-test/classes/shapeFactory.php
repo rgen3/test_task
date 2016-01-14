@@ -9,6 +9,13 @@ class shapeFactory
 
     private static $shape_namespace = 'shapes';
 
+    /**
+     * Returns an instance of a shape
+     *
+     * @param $shape
+     * @param $params
+     * @return string
+     */
     public static function create($shape, $params)
     {
         try
@@ -24,6 +31,7 @@ class shapeFactory
         catch (\Exception $e)
         {
             // Handle exception
+            echo "ERROR MESSAGE : {$e->getMessage()}";
             $shape = false;
         }
 

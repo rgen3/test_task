@@ -40,8 +40,18 @@
  * Обязательно применение ООП, желательно – применение паттернов.
  */
 
+/**
+ * Simple autoloader
+ */
 spl_autoload_register(function($name){
-    require "{$name}.php";
+    $filepath = "{$name}.php";
+    if (!file_exists($filepath))
+    {
+        return 0;
+    }
+
+    require_once $filepath;
 });
 
+// start!
 bootstrap\bootstrap::run();

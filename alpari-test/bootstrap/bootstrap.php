@@ -7,19 +7,28 @@ use classes\shapeFactory as Factory;
 class bootstrap
 {
     /**
+     * Input data
+     *
      * @var array
      */
     private static $data = [
         [
             'type' => 'circle',
             'properties' => [
-                'property_one' => 'value one',
-                'property_two' => 'value two',
-                'property_three' => 'value three'
+                'radius' => 'value one',
+                'custom' => 'value two',
+                'color' => 123,
+                'background' => 213
             ]
         ],
         [
             'type' => 'square',
+            'properties' => [
+                'color' => 333
+            ]
+        ],
+        [
+            'type' => 'incorrect_type',
             'properties' => [
                 'color' => 333
             ]
@@ -33,7 +42,7 @@ class bootstrap
     ];
 
     /**
-     *
+     * Run the script
      */
     public static function run()
     {
@@ -43,17 +52,21 @@ class bootstrap
         {
             $shape = Factory::create($array['type'], $array['properties']);
 
-            if (!$shape)
+            if ($shape === false)
+                break;
+
+            if (($errors = $shape->create()) instanceof \classes\shapeErrors)
             {
-                // handle error
-                continue;
+                echo $errors;
+                break;
             }
-            $shape->draw();
         }
 
     }
 
     /**
+     * Process and get the input data
+     *
      * @return array
      */
     protected static function getData()
